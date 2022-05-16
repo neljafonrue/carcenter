@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>CAR CENTER - Registro Clientes</title>
+	</head>
+	<body>
+		<h1>Registro de Clientes</h1>
+		<hr />
+		<h:form>
+		    <h:messages errorStyle="color:red" infoStyle="color:green" globalOnly="true"></h:messages>
+			<h:panelGrid columns="2">
+			   <h:outputText value="Tipo de Documento"></h:outputText>
+			   <h:selectOneMenu id="cmbTipoDoc" value="#{cliente.idTipoDocumento}">
+			   		<f:selectItems value="#{cliente.tiposDocumento}"></f:selectItems>
+			   </h:selectOneMenu>
+			   <h:outputText value="Número de Documento"></h:outputText>
+			   <h:inputText id="txtNroDoc" value="#{cliente.numeroDocumento}"></h:inputText>
+			   <h:outputText value="Primer Nombre"></h:outputText>
+			   <h:inputText id="txtPNombre" value="#{cliente.primerNombre}"></h:inputText>
+			   <h:outputText value="Segundo Nombre"></h:outputText>
+			   <h:inputText id="txtSNombre" value="#{cliente.segundoNombre}"></h:inputText>
+			   <h:outputText value="Primer Apellido"></h:outputText>
+			   <h:inputText id="txtPApellido" value="#{cliente.primerApellido}"></h:inputText>
+			   <h:outputText value="Segundo Apellido"></h:outputText>
+			   <h:inputText id="txtSApellido" value="#{cliente.segundoApellido}"></h:inputText>
+			   <h:outputText value="Dirección"></h:outputText>
+			   <h:inputText id="txtDireccion" value="#{cliente.direccion}"></h:inputText>
+			   <h:outputText value="Teléfono"></h:outputText>
+			   <h:inputText id="txtNroTel" value="#{cliente.numeroTelefono}"></h:inputText>
+			   <h:outputText value="Correo Electrónico"></h:outputText>
+			   <h:inputText id="txtMail" value="#{cliente.correoElectronico}"></h:inputText>
+			</h:panelGrid>
+			<h:commandButton id="btnRegresar" action="inicio" value="Regresar"></h:commandButton>
+			<h:commandButton id="btnGuardar" action="#{cliente.guardarCliente}" value="Guardar"></h:commandButton>		
+		</h:form>	
+	</body>
+</html>

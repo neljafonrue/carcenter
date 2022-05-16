@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>CAR CENTER - Registro Vehículos</title>
+	</head>
+	<body>
+		<h1>Registro de vehículos</h1>
+		<hr />
+		<h:form>
+		    <h:messages errorStyle="color:red" infoStyle="color:green" globalOnly="true"></h:messages>
+			<h:panelGrid columns="2">
+			   <h:outputText value="Cliente"></h:outputText>
+			   <h:selectOneMenu id="cmbCliente" value="#{vehiculo.clienteSeleccionado}">
+			   		<f:selectItems value="#{vehiculo.listaClientes}"></f:selectItems>
+			   </h:selectOneMenu>
+			   <h:outputText value="Matrícula"></h:outputText>
+			   <h:inputText id="txtMatricula" value="#{vehiculo.matricula}"></h:inputText>
+			   <h:outputText value="Marca"></h:outputText>
+			   <h:inputText id="txtMarca" value="#{vehiculo.marca}"></h:inputText>
+			   <h:outputText value="Referencia"></h:outputText>
+			   <h:inputText id="txtReferencia" value="#{vehiculo.referencia}"></h:inputText>
+			   <h:outputText value="Modelo"></h:outputText>
+			   <h:inputText id="txtModelo" value="#{vehiculo.modelo}"></h:inputText>
+			   <h:outputText value="Color"></h:outputText>
+			   <h:inputText id="txtColor" value="#{vehiculo.color}"></h:inputText>
+			</h:panelGrid>
+			<h:commandButton id="btnRegresar" action="inicio" value="Regresar"></h:commandButton>
+			<h:commandButton id="btnGuardar" action="#{vehiculo.guardarVehiculo}" value="Guardar"></h:commandButton>		
+		</h:form>	
+	</body>
+</html>

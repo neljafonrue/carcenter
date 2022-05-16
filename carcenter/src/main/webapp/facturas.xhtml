@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>CAR CENTER - Facturación</title>
+	</head>
+	<body>
+		<h1>Facturación de Servicios</h1>
+		<hr />
+		<h:form>
+		    <h:messages errorStyle="color:red" infoStyle="color:green" globalOnly="true"></h:messages>
+		    <h:panelGrid columns="3">
+		       <h:outputText value="Cliente"></h:outputText>
+			   <h:selectOneMenu id="cmbCliente" value="#{facturacion.clienteSeleccionado}">
+			   		<f:selectItems value="#{facturacion.listaClientes}"></f:selectItems>
+			   </h:selectOneMenu>
+			   <h:commandButton id="btnInfo" action="#{facturacion.obtenerInfoFacturacionCliente}" value="Cargar Facturación"></h:commandButton>
+		    </h:panelGrid>
+			<hr />
+			<h:panelGrid columns="2">
+			   <h:outputText value="Tipo de Documento Mecánico"></h:outputText>
+			   <h:inputText id="txtTipoDocMec" value="#{facturacion.nomDocumentoMecanico}" disabled="true"></h:inputText>
+			   <h:outputText value="Número de Documento Mecánico"></h:outputText>
+			   <h:inputText id="txtNroDocMec" value="#{facturacion.numeroDocumentoMecanico}" disabled="true"></h:inputText>
+			   <h:outputText value="Nombre Mecánico"></h:outputText>
+			   <h:inputText id="txtNombreMec" value="#{facturacion.nombreMecanico}" disabled="true"></h:inputText>
+			   <h:outputText value="Subtotal"></h:outputText>
+			   <h:inputText id="txtSubtotal" value="#{facturacion.subtotal}" disabled="true"></h:inputText>
+			   <h:outputText value="Valor de IVA"></h:outputText>
+			   <h:inputText id="txtIVA" value="#{facturacion.valorIVA}" disabled="true"></h:inputText>
+			   <h:outputText value="Total Factura"></h:outputText>
+			   <h:inputText id="txtTotalFac" value="#{facturacion.totalFactura}" disabled="true"></h:inputText>			   
+			</h:panelGrid>
+			<h:panelGrid columns="1">
+			   <h:dataTable id="tblDetalle" value="#{facturacion.infoFactura}" var="info" border="4" style="width:500px;">
+			      <h:column>
+			         <f:facet name="header">Cantidad</f:facet>
+			         <h:outputText value="#{info.cantidadUtilizada}"></h:outputText>
+			      </h:column>
+			      <h:column>
+			         <f:facet name="header">Producto</f:facet>
+			         <h:outputText value="#{info.descripcion}"></h:outputText>
+			      </h:column>
+			      <h:column>
+			         <f:facet name="header">Valor Unitario</f:facet>
+			         <h:outputText value="#{info.valorUnitarioVenta}"></h:outputText>
+			      </h:column>
+			      <h:column>
+			         <f:facet name="header">Total</f:facet>
+			         <h:outputText value="#{info.valorProducto}"></h:outputText>
+			      </h:column>
+			   </h:dataTable>
+			</h:panelGrid>
+			<h:commandButton id="btnRegresar" action="inicio" value="Regresar"></h:commandButton>
+			<h:commandButton id="btnGuardar" action="#{facturacion.guardarFactura}" value="Guardar"></h:commandButton>		
+		</h:form>	
+	</body>
+</html>
